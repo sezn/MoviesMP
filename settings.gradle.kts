@@ -1,4 +1,4 @@
-rootProject.name = "MyApplication"
+rootProject.name = "MoviesDb"
 
 include(":androidApp")
 include(":shared")
@@ -34,3 +34,4 @@ dependencyResolutionManagement {
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
+include(":network")
