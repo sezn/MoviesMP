@@ -8,17 +8,17 @@ plugins {
 android {
     namespace = "com.szn.network"
 
-/*    defaultConfig {
+    defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         compileSdk = 34
         buildFeatures {
             buildConfig = true
         }
-        buildConfigField("String", "MOVIES_BASE_URL", "\"https://api.themoviedb.org/\"")
-        buildConfigField("String", "IMAGE_BASE", "\"https://image.tmdb.org/t/p/w500\"")
+//        buildConfigField("String", "MOVIES_BASE_URL", "\"https://api.themoviedb.org/\"")
+//        buildConfigField("String", "IMAGE_BASE", "\"https://image.tmdb.org/t/p/w500\"")
 //        buildConfigField("String", "API_KEY", getApiKey())
-        buildConfigField("String", "GRAVATAR_URL", "\"https://gravatar.com/avatar/\"")
-    }*/
+//        buildConfigField("String", "GRAVATAR_URL", "\"https://gravatar.com/avatar/\"")
+    }
 }
 
 dependencies {
