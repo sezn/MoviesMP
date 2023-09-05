@@ -8,7 +8,7 @@ plugins {
 kotlin {
     androidTarget()
 
-    jvm("desktop")
+//    jvm("desktop")
 
     iosX64()
     iosArm64()
@@ -36,6 +36,7 @@ kotlin {
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
 //                implementation(project(":core:network"))
+                implementation(project(":domain"))
             }
         }
         val androidMain by getting {
@@ -54,17 +55,17 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
         }
-        val desktopMain by getting {
+/*        val desktopMain by getting {
             dependencies {
                 implementation(compose.desktop.common)
             }
-        }
+        }*/
     }
 }
 
 android {
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
-    namespace = "com.myapplication.common"
+    namespace = "com.szn.common"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")

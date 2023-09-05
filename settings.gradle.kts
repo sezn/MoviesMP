@@ -2,7 +2,7 @@ rootProject.name = "MoviesDb"
 
 include(":androidApp")
 include(":shared")
-include(":desktopApp")
+//include(":desktopApp")
 
 pluginManagement {
     includeBuild("build-logic")
@@ -35,4 +35,5 @@ dependencyResolutionManagement {
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
+include(":domain")
 include(":core:network")

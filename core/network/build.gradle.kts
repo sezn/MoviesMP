@@ -1,27 +1,48 @@
 plugins {
-    alias(libs.plugins.ksp)
-    id("org.jetbrains.kotlin.plugin.serialization")
+//    alias(libs.plugins.ksp)
+    kotlin("native.cocoapods")
+    id("com.android.library")
+    id("multiplatform.convention")
     id("multiplatform.library")
+}
+
+kotlin {
+    androidTarget()
+    jvm("desktop")
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    )
+    cocoapods {
+        version = "1.0.0"
+    }
+
+
+    sourceSets {
+
+        sourceSets["commonMain"].dependencies {
+            implementation(libs.kotlinx.serialization.json)
+            implementation(libs.ktor.serialization)
+            implementation(libs.ktor.serialization.json)
+        }
+    }
 }
 
 
 android {
     namespace = "com.szn.network"
-
-    defaultConfig {
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        compileSdk = 34
-        buildFeatures {
-            buildConfig = true
-        }
-//        buildConfigField("String", "MOVIES_BASE_URL", "\"https://api.themoviedb.org/\"")
-//        buildConfigField("String", "IMAGE_BASE", "\"https://image.tmdb.org/t/p/w500\"")
-//        buildConfigField("String", "API_KEY", getApiKey())
-//        buildConfigField("String", "GRAVATAR_URL", "\"https://gravatar.com/avatar/\"")
-    }
+    compileSdk = 34
 }
-
+/*
 dependencies {
     implementation(libs.kotlinx.serialization.json)
-
-}
+    implementation(libs.ktor.auth)
+    implementation(libs.ktor.fit)
+    implementation(libs.ktor.logging)
+    implementation(libs.ktor.negociation)
+    implementation(libs.ktor.okhttp)
+    implementation(libs.ktor.serialization)
+    implementation(libs.ktor.serialization.json)
+//    add("ksp", libs.ktorfit.ksp)
+}*/

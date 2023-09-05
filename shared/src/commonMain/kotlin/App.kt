@@ -12,6 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.szn.domain.model.fakeMovie
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -20,11 +21,13 @@ import org.jetbrains.compose.resources.painterResource
 fun App() {
 
 //    val favorite = Favorite()
+    val movie = fakeMovie
 
     MaterialTheme {
-        var greetingText by remember { mutableStateOf("Hello, World!") }
+        var greetingText by remember { mutableStateOf(movie.title) }
         var showImage by remember { mutableStateOf(false) }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(movie.description)
             Button(onClick = {
                 greetingText = "Hello, ${getPlatformName()}"
                 showImage = !showImage
