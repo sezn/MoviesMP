@@ -33,8 +33,4 @@ android {
     defaultConfig {
         minSdk = 24
     }
-
-    kotlin {
-        jvmToolchain(17)
-    }
 }
