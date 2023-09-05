@@ -2,7 +2,7 @@ rootProject.name = "MoviesDb"
 
 include(":androidApp")
 include(":shared")
-//include(":desktopApp")
+include(":desktopApp")
 
 pluginManagement {
     includeBuild("build-logic")
