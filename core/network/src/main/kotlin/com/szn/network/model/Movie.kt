@@ -1,4 +1,4 @@
-package com.szn.network.ktor.model
+package com.szn.network.model
 
 import kotlinx.serialization.Serializable
 

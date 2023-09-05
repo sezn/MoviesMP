@@ -1,4 +1,4 @@
-package com.szn.network.ktor.model
+package com.szn.network.model
 
 data class ErrorResponse(
     val status_code: Int,

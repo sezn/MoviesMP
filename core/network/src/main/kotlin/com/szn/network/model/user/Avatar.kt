@@ -1,4 +1,4 @@
-package com.szn.network.ktor.model.user
+package com.szn.network.model.user
 
 import kotlinx.serialization.Serializable
 

@@ -1,6 +1,5 @@
-package com.szn.network.ktor.model.user
+package com.szn.network.model.user
 
-import com.szn.network.ktor.BuildConfig
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -15,7 +14,7 @@ data class Account(
 ) {
     constructor() : this(null, 0, true, null, null, null, null)
 
-    fun getGravatar(): String {
+    /*fun getGravatar(): String {
         return BuildConfig.GRAVATAR_URL + avatar?.gravatar
-    }
+    }*/
 }

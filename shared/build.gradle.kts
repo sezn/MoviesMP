@@ -1,8 +1,8 @@
 plugins {
-    kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
-    id("org.jetbrains.compose")
+    id("multiplatform.convention")
+    id("multiplatform.library")
 }
 
 kotlin {
@@ -35,6 +35,7 @@ kotlin {
                 implementation(compose.material3)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
+//                implementation(project(":core:network"))
             }
         }
         val androidMain by getting {
