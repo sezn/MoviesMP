@@ -7,3 +7,11 @@ plugins {
     id("org.jetbrains.compose").apply(false)
     alias(libs.plugins.kotlin.serialization) apply false
 }
+
+subprojects {
+    afterEvaluate {
+        extensions.findByType<org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension>()?.apply {
+            jvmToolchain(17)
+        }
+    }
+}
