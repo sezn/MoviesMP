@@ -1,9 +1,9 @@
 plugins {
-//    alias(libs.plugins.ksp)
-    kotlin("native.cocoapods")
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.ktorfit)
+    alias(libs.plugins.kotlin.serialization)
+    kotlin("multiplatform")
     id("com.android.library")
-    id("multiplatform.convention")
-    id("multiplatform.library")
 }
 
 kotlin {
@@ -14,17 +14,15 @@ kotlin {
         iosArm64(),
         iosSimulatorArm64()
     )
-    cocoapods {
-        version = "1.0.0"
-    }
-
 
     sourceSets {
 
         sourceSets["commonMain"].dependencies {
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.ktor.negociation)
             implementation(libs.ktor.serialization)
             implementation(libs.ktor.serialization.json)
+            implementation(libs.ktorfit)
         }
     }
 }
@@ -34,15 +32,3 @@ android {
     namespace = "com.szn.network"
     compileSdk = 34
 }
-/*
-dependencies {
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.ktor.auth)
-    implementation(libs.ktor.fit)
-    implementation(libs.ktor.logging)
-    implementation(libs.ktor.negociation)
-    implementation(libs.ktor.okhttp)
-    implementation(libs.ktor.serialization)
-    implementation(libs.ktor.serialization.json)
-//    add("ksp", libs.ktorfit.ksp)
-}*/

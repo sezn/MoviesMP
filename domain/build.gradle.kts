@@ -21,7 +21,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 //put your multiplatform dependencies here
-//                implementation(project(":core:network"))
+                implementation(project(":core:network"))
             }
         }
     }
