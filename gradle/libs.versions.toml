@@ -7,7 +7,6 @@ kotlin = "1.9.0"
 kotlinxSerializationJson = "1.6.0"
 ktor = "2.3.4"
 ktorFit = "1.6.0"
-
 androidGradlePlugin = "8.2.0-alpha16"
 ksp = "1.9.0-1.0.13"
 
@@ -17,6 +16,7 @@ androidx-activity-compose = { group = "androidx.activity", name = "activity-comp
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinxSerializationJson" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 ktor-auth = { group = "io.ktor", name = "ktor-client-auth", version.ref = "ktor" }
 ktor-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
@@ -29,7 +29,6 @@ ktor-serialization = { group = "io.ktor", name = "ktor-client-serialization", ve
 ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktorfit = { group = "de.jensklingenberg.ktorfit", name = "ktorfit-lib", version.ref = "ktorFit" }
 ktorfit-ksp = { group = "de.jensklingenberg.ktorfit", name = "ktorfit-ksp", version.ref = "ktorFit" }
-ktor-fit = { group = "de.jensklingenberg.ktorfit", name = "ktorfit-lib", version.ref = "ktorFit"}
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }

@@ -19,7 +19,7 @@ interface MoviesAPI {
 
 
     @GET("4/discover/movie")
-    suspend fun getMovies(@Query("sort_by") sort: String?,
+    suspend fun getMovies(@Query("sort_by") sort: String? = null,
                           @Query("language") lang: String? = "fr",
                           @Query("page") page: Int? = 1,
                           @Query("api_key") key: String = API_KEY

@@ -1,9 +1,9 @@
 package com.szn.domain.usecases
 
 import com.szn.domain.model.Movie
-import com.szn.domain.repo.MovieRepository
+import com.szn.domain.repo.MoviesRepository
 
-class MovieUseCase(private val movieRepository: MovieRepository) {
+class MovieUseCase(private val movieRepository: MoviesRepository) {
 
     suspend fun getMovieById(id: String): Movie? {
         return movieRepository.getMovieById(id)

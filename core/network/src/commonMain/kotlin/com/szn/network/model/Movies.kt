@@ -1,6 +1,5 @@
 package com.szn.network.model
 
-import com.szn.network.model.Movie
 import kotlinx.serialization.Serializable
 
 @Serializable

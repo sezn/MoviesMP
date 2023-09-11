@@ -1,36 +1,36 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
 
     androidTarget()
     jvm()
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
-            baseName = "domain"
-        }
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
-    sourceSets {
+/*    sourceSets {
         val commonMain by getting {
             dependencies {
                 //put your multiplatform dependencies here
                 implementation(project(":core:network"))
             }
         }
-    }
+    }*/
 }
 
 android {
     namespace = "com.szn.domain"
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
         minSdk = 24
     }
+}
+
+dependencies {
+    //put your multiplatform dependencies here
+//    implementation(project(":core:network"))
 }

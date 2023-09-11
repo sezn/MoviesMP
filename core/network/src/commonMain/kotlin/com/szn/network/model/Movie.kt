@@ -2,6 +2,7 @@ package com.szn.network.model
 
 import kotlinx.serialization.Serializable
 
+
 @Serializable
 data class Movie(
     val id: Int,
@@ -29,7 +30,6 @@ data class Movie(
         return genders
     }
 }
-
 @Serializable
 data class Genre(
     val id: Int,

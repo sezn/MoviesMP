@@ -35,8 +35,8 @@ kotlin {
                 implementation(compose.material3)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
-//                implementation(project(":core:network"))
                 implementation(project(":domain"))
+                implementation(project(":core:network"))
             }
         }
         val androidMain by getting {

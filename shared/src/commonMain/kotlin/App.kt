@@ -13,6 +13,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.szn.domain.model.fakeMovie
+import com.szn.network.model.Favorite
+import com.szn.network.moviesAPI
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -20,8 +25,12 @@ import org.jetbrains.compose.resources.painterResource
 @Composable
 fun App() {
 
-//    val favorite = Favorite()
+    val favorite = Favorite(true, 1, "test")
     val movie = fakeMovie
+
+/*    CoroutineScope(Dispatchers.Main).launch {
+        val movies = moviesAPI.getMovies()
+    }*/
 
     MaterialTheme {
         var greetingText by remember { mutableStateOf(movie.title) }
@@ -43,5 +52,6 @@ fun App() {
         }
     }
 }
+
 
 expect fun getPlatformName(): String
