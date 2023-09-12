@@ -12,6 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.szn.design.MoviesTheme
 import com.szn.domain.model.fakeMovie
 import com.szn.network.model.Favorite
 import com.szn.network.moviesAPI
@@ -20,6 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
+//import com.szn.design
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
@@ -32,10 +34,13 @@ fun App() {
         val movies = moviesAPI.getMovies()
     }*/
 
-    MaterialTheme {
+    MoviesTheme {
+//    MaterialTheme {
         var greetingText by remember { mutableStateOf(movie.title) }
         var showImage by remember { mutableStateOf(false) }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(Modifier.fillMaxWidth(),
+
+            horizontalAlignment = Alignment.CenterHorizontally) {
             Text(movie.description)
             Button(onClick = {
                 greetingText = "Hello, ${getPlatformName()}"

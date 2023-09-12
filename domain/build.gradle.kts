@@ -25,9 +25,6 @@ kotlin {
 android {
     namespace = "com.szn.domain"
     compileSdk = 34
-    defaultConfig {
-        minSdk = 24
-    }
 }
 
 dependencies {

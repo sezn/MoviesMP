@@ -17,6 +17,12 @@ class LibraryConventionPlugin : Plugin<Project> {
                 configureKotlin(this)
             }
 
+            target.task("hello") {
+                doLast {
+                    println("Hello from LibraryConventionPlugin")
+                }
+            }
+
         }
     }
 }

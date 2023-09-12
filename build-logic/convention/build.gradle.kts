@@ -1,5 +1,8 @@
 plugins {
     `kotlin-dsl`
+
+    id("java-gradle-plugin")
+    id("org.jetbrains.kotlin.jvm").version("1.6.21")
 }
 
 
@@ -20,6 +23,11 @@ gradlePlugin {
         register("MultiplatformConvention") {
             id = "multiplatform.convention"
             implementationClass = "MultiPlatformConventionPlugin"
+        }
+
+        register("LibraryCompose") {
+            id = "library.compose"
+            implementationClass = "LibraryComposeConventionPlugin"
         }
 
     }
