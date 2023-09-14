@@ -15,6 +15,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.szn.design.MoviesTheme
+import com.szn.design.SplashView
 import com.szn.domain.model.fakeMovie
 import com.szn.network.model.Favorite
 import com.szn.network.moviesAPI
@@ -35,7 +36,7 @@ fun App() {
         val movies = moviesAPI.getMovies()
     }*/
 
-    MoviesTheme {
+    /*MoviesTheme {
         var greetingText by remember { mutableStateOf(movie.title) }
         var showImage by remember { mutableStateOf(false) }
         Column(Modifier.fillMaxSize()
@@ -56,7 +57,14 @@ fun App() {
                 )
             }
         }
-    }
+    }*/
+
+/*
+    MoviesTheme {
+        SplashView()
+    }*/
+
+    AppSkeleton()
 }
 
 
