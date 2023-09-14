@@ -1,6 +1,8 @@
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -21,7 +23,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
-//import com.szn.design
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
@@ -35,11 +36,11 @@ fun App() {
     }*/
 
     MoviesTheme {
-//    MaterialTheme {
         var greetingText by remember { mutableStateOf(movie.title) }
         var showImage by remember { mutableStateOf(false) }
-        Column(Modifier.fillMaxWidth(),
-
+        Column(Modifier.fillMaxSize()
+//            .background(MaterialTheme.colorScheme.background)
+            ,
             horizontalAlignment = Alignment.CenterHorizontally) {
             Text(movie.description)
             Button(onClick = {

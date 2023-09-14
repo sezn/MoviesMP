@@ -24,7 +24,13 @@ kotlin {
             dependencies {
 //                implementation(compose.runtime)
 //                implementation(compose.foundation)
-                api(compose.material3)
+                implementation(compose.material3)
+            }
+        }
+
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.androidx.compose.ui.tooling.preview)
             }
         }
     }
@@ -33,4 +39,8 @@ kotlin {
 android {
     namespace = "com.szn.design"
     compileSdk = 34
+}
+
+dependencies {
+    debugImplementation(libs.androidx.compose.ui.tooling)
 }
