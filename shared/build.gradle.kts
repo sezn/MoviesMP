@@ -3,6 +3,7 @@ plugins {
     id("com.android.library")
     id("multiplatform.convention")
     id("multiplatform.library")
+    id("library.compose")
 }
 
 kotlin {
@@ -39,6 +40,8 @@ kotlin {
                 implementation(project(":core:network"))
                 implementation(project(":design"))
                 implementation(project(":features:home"))
+                implementation(libs.decompose)
+//                implementation(libs.decompose.jetbrains)
 
             }
         }

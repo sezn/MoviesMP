@@ -32,6 +32,7 @@ internal fun Project.configureAndroidCompose(
 
     dependencies {
         "implementation"(libs.findLibrary("androidx.compose.material3").get())
+        "implementation"(libs.findLibrary("decompose").get())
 
     }
 
