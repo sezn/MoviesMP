@@ -55,6 +55,7 @@ kotlin {
                 implementation(project(":core:network"))
                 implementation(project(":design"))
                 implementation(project(":features:home"))
+                api(project(":core:decompose"))
                 api(libs.decompose)
                 implementation(libs.decompose.jetbrains)
             }

@@ -14,7 +14,7 @@ class DefaultWelcomeComponent(
     override val model: Value<WelcomeComponent.Model> = state
 
     override fun onUpdateGreetingText() {
-        state.update { it.copy(greetingText = "Welcome from ${getPlatformName()}") }
+        state.update { it.copy(greetingText = "Welcome from tt") }
     }
 
     override fun onBackClicked() {
