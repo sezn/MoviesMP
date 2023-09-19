@@ -6,6 +6,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
+import com.szn.design.SplashViewDecompose
 
 @Composable
 fun AppContent(component: RootComponent,
@@ -19,7 +20,8 @@ fun AppContent(component: RootComponent,
 //            animation = stackAnimation(fade() + scale())
         ) {
             when (val instance = it.instance) {
-                is RootComponent.Child.Main -> AppSkeleton(/*component = instance.component*/)
+                is RootComponent.Child.Main -> SplashViewDecompose(/*component = instance.component*/)
+//                is RootComponent.Child.Main -> AppSkeleton(/*component = instance.component*/)
 //                is RootComponent.Child.Welcome -> HomeContent(component = instance.component)
                 else -> {
                     throw Exception("Unknown child $instance")
