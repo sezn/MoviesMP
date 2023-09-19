@@ -1,71 +1,34 @@
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.szn.design.MoviesTheme
-import com.szn.design.SplashView
-import com.szn.domain.model.fakeMovie
-import com.szn.network.model.Favorite
-import com.szn.network.moviesAPI
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import org.jetbrains.compose.resources.ExperimentalResourceApi
-import org.jetbrains.compose.resources.painterResource
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
-fun App() {
+fun AppContent(component: RootComponent,
+               modifier: Modifier = Modifier) {
 
-    val favorite = Favorite(true, 1, "test")
-    val movie = fakeMovie
+    Surface(modifier = modifier.fillMaxSize().windowInsetsPadding(WindowInsets.systemBars)) {
 
-/*    CoroutineScope(Dispatchers.Main).launch {
-        val movies = moviesAPI.getMovies()
-    }*/
-
-    /*MoviesTheme {
-        var greetingText by remember { mutableStateOf(movie.title) }
-        var showImage by remember { mutableStateOf(false) }
-        Column(Modifier.fillMaxSize()
-//            .background(MaterialTheme.colorScheme.background)
-            ,
-            horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(movie.description)
-            Button(onClick = {
-                greetingText = "Hello, ${getPlatformName()}"
-                showImage = !showImage
-            }) {
-                Text(greetingText)
+        Children(
+            stack = component.stack,
+            modifier = Modifier.fillMaxSize(),
+//            animation = stackAnimation(fade() + scale())
+        ) {
+            when (val instance = it.instance) {
+                is RootComponent.Child.Main -> AppSkeleton(/*component = instance.component*/)
+//                is RootComponent.Child.Welcome -> HomeContent(component = instance.component)
+                else -> {
+                    throw Exception("Unknown child $instance")
+                }
             }
-            AnimatedVisibility(showImage) {
-                Image(
-                    painterResource("compose-multiplatform.xml"),
-                    null
-                )
-            }
+
+//        AppSkeleton()
         }
-    }*/
 
-/*
-    MoviesTheme {
-        SplashView()
-    }*/
+    }
 
-    AppSkeleton()
 }
-
-
-expect fun getPlatformName(): String

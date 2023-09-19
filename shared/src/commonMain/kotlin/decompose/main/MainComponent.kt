@@ -1,0 +1,5 @@
+
+interface MainComponent {
+
+    fun onShowWelcomeClicked()
+}

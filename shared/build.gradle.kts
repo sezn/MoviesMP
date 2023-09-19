@@ -4,6 +4,7 @@ plugins {
     id("multiplatform.convention")
     id("multiplatform.library")
     id("library.compose")
+    alias(libs.plugins.kotlin.parcelize)
 }
 
 kotlin {
@@ -11,9 +12,21 @@ kotlin {
 
     jvm("desktop")
 
-    iosX64()
+    /*iosX64()
     iosArm64()
-    iosSimulatorArm64()
+    iosSimulatorArm64()*/
+
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    )/*.forEach {
+        it.binaries.framework {
+            baseName = "shared"
+
+            export(libs.decompose)
+        }
+    }*/
 
     cocoapods {
         version = "1.0.0"
@@ -24,6 +37,8 @@ kotlin {
         framework {
             baseName = "shared"
             isStatic = true
+
+//            export(libs.decompose)
         }
 //        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
@@ -40,9 +55,8 @@ kotlin {
                 implementation(project(":core:network"))
                 implementation(project(":design"))
                 implementation(project(":features:home"))
-                implementation(libs.decompose)
-//                implementation(libs.decompose.jetbrains)
-
+                api(libs.decompose)
+                implementation(libs.decompose.jetbrains)
             }
         }
         val androidMain by getting {

@@ -3,7 +3,8 @@ androidxActivity = "1.7.2"
 androidxAppCompat = "1.6.1"
 androidxComposeCompiler = "1.5.3"
 androidxCore = "1.10.1"
-decompose = "2.2.0-dev02"
+#decompose = "2.2.0-dev02"
+decompose = "2.0.0-compose-experimental-beta-01"
 koin = "3.4.3"
 kotlin = "1.9.0"
 kotlinxSerializationJson = "1.6.0"
@@ -45,5 +46,6 @@ ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devto
 
 [plugins]
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktorfit = { id = "de.jensklingenberg.ktorfit", version = "1.0.0" }
