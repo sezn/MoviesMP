@@ -49,6 +49,7 @@ class DefaultRootComponent(
         )
 
     override fun onBackClicked(toIndex: Int) {
+        println("onBackClicked to $toIndex")
         navigation.popTo(index = toIndex)
     }
 
