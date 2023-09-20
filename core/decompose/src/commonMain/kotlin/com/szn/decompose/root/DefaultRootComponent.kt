@@ -37,8 +37,8 @@ class DefaultRootComponent(
             onShowWelcome = { navigation.push(Config.Welcome) },
         )
 
-    private fun welcomeComponent(componentContext: ComponentContext): WelcomeComponent =
-        DefaultWelcomeComponent(
+    private fun welcomeComponent(componentContext: ComponentContext): AuthComponent =
+        DefaultAuthComponent(
             componentContext = componentContext,
             onFinished = navigation::pop,
         )

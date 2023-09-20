@@ -1,7 +1,7 @@
 
 import com.arkivanov.decompose.value.Value
 
-interface WelcomeComponent {
+interface AuthComponent {
 
     val model: Value<Model>
 

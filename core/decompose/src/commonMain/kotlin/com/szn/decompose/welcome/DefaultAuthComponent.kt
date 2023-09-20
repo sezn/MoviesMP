@@ -4,14 +4,14 @@ import com.arkivanov.decompose.value.MutableValue
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.decompose.value.update
 
-class DefaultWelcomeComponent(
+class DefaultAuthComponent(
     private val componentContext: ComponentContext,
     private val onFinished: () -> Unit,
-) : WelcomeComponent, ComponentContext by componentContext {
+) : AuthComponent, ComponentContext by componentContext {
 
     // Consider preserving and managing the state via a store
-    private val state = MutableValue(WelcomeComponent.Model())
-    override val model: Value<WelcomeComponent.Model> = state
+    private val state = MutableValue(AuthComponent.Model())
+    override val model: Value<AuthComponent.Model> = state
 
     override fun onUpdateGreetingText() {
         state.update { it.copy(greetingText = "Welcome from tt") }

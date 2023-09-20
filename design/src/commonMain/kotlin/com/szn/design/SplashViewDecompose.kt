@@ -1,9 +1,11 @@
 package com.szn.design
 
+import MainComponent
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,7 +26,8 @@ import org.jetbrains.compose.resources.painterResource
 
 
 @Composable
-fun SplashViewDecompose(/*component: RootComponent*/) {
+fun SplashViewDecompose(component: MainComponent,
+                        modifier: Modifier = Modifier) {
     val TAG = "SplashView"
 
 
@@ -33,7 +36,7 @@ fun SplashViewDecompose(/*component: RootComponent*/) {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             content = { padding ->
-                Splash()
+                Splash(component)
             }
         )
 
@@ -43,7 +46,7 @@ fun SplashViewDecompose(/*component: RootComponent*/) {
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun Splash() {
+fun Splash(component: MainComponent) {
 
     val scale = remember {
         Animatable(0f)
@@ -71,6 +74,9 @@ fun Splash() {
                 modifier = Modifier
                     .size(320.dp)
                     .scale(scale.value)
+                    .clickable {
+                        component.onShowWelcomeClicked()
+                    }
             )
         }
 

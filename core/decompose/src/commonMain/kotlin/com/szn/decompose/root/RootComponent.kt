@@ -10,6 +10,6 @@ interface RootComponent {
 
     sealed class Child {
         class Main(val component: MainComponent) : Child()
-        class Welcome(val component: WelcomeComponent) : Child()
+        class Welcome(val component: AuthComponent) : Child()
     }
 }

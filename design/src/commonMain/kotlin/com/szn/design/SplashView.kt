@@ -4,6 +4,7 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -49,6 +50,10 @@ fun SplashView() {
                 modifier = Modifier
                     .size(320.dp)
                     .scale(scale.value)
+                    .clickable {
+                        println("SplashView Test")
+                        throw Exception("SplashView Test Exception")
+                    }
             )
         }
 
