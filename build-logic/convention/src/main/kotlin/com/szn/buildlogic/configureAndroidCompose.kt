@@ -32,8 +32,10 @@ internal fun Project.configureAndroidCompose(
 
     dependencies {
         "implementation"(libs.findLibrary("androidx.compose.material3").get())
-        "implementation"(libs.findLibrary("compose.material.icons.ext").get())
+//        Dont work
+//        "implementation"(libs.findLibrary("compose.material.icons.ext").get())
 
     }
+
 
 }
