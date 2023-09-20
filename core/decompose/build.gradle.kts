@@ -23,7 +23,9 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(libs.decompose)
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(libs.decompose)
                 implementation(libs.decompose.jetbrains)
             }
         }

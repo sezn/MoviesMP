@@ -5,7 +5,8 @@ interface AuthComponent {
 
     val model: Value<Model>
 
-    fun onUpdateGreetingText()
+    fun onLogin(name: String, pwd: String)
+    fun onForgot(name: String)
     fun onBackClicked()
 
     data class Model(

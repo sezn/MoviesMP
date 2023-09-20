@@ -12,10 +12,18 @@ class DefaultAuthComponent(
     // Consider preserving and managing the state via a store
     private val state = MutableValue(AuthComponent.Model())
     override val model: Value<AuthComponent.Model> = state
-
-    override fun onUpdateGreetingText() {
-        state.update { it.copy(greetingText = "Welcome from tt") }
+    override fun onLogin(name: String, pwd: String) {
+        println("Login: $name / $pwd")
+        TODO("Not yet implemented $name")
     }
+
+    override fun onForgot(name: String) {
+        TODO("Not yet implemented")
+    }
+
+/*    override fun onUpdateGreetingText() {
+        state.update { it.copy(greetingText = "Welcome from tt") }
+    }*/
 
     override fun onBackClicked() {
         onFinished()

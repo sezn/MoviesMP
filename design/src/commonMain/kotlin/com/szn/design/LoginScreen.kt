@@ -21,7 +21,9 @@ fun LoginScreen(component: AuthComponent) {
         Text(text = "Password")
         TextField(value = password, onValueChange = { password = it }, visualTransformation = PasswordVisualTransformation())
 
-        Button(onClick = { /* Login logic */ }) {
+        Button(onClick = {
+            component.onLogin(email, password)
+        }) {
             Text(text = "Login")
         }
     }
