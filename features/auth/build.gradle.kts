@@ -26,8 +26,9 @@ kotlin {
                 implementation(compose.material3)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
-
                 implementation(libs.compose.material.icons.ext)
+                implementation(libs.kmp.viewmodel)
+                implementation(libs.koin.core)
 
                 implementation(project(":design"))
                 implementation(project(":core:decompose"))

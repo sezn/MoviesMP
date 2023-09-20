@@ -10,6 +10,8 @@ kotlin {
             dependencies {
                 implementation(project(":shared"))
                 implementation(project(":core:decompose"))
+                implementation(libs.koin.android)
+                implementation(libs.koin.core)
             }
         }
     }
@@ -17,7 +19,7 @@ kotlin {
 
 android {
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
-    namespace = "com.myapplication"
+    namespace = "com.movies"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 

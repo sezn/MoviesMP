@@ -59,6 +59,7 @@ kotlin {
                 api(project(":core:decompose"))
                 api(libs.decompose)
                 implementation(libs.decompose.jetbrains)
+                implementation(libs.koin.core)
             }
         }
         val androidMain by getting {

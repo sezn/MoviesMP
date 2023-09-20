@@ -1,7 +1,11 @@
 package com.szn.movies.auth
 
-/*
-class AuthViewModel @Inject constructor(private val userRepository: UserRepo): ViewModel{
+import com.hoc081098.kmp.viewmodel.ViewModel
 
+class AuthViewModel: ViewModel() {
+
+    init {
+        println("AuthViewModel init")
+    }
 }
-*/
+

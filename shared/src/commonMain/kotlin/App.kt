@@ -13,6 +13,7 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stac
 import com.szn.decompose.root.RootComponent
 import com.szn.design.MoviesTheme
 import com.szn.design.SplashViewDecompose
+import com.szn.movies.auth.LoginRoute
 import com.szn.movies.auth.LoginView
 
 @Composable
@@ -31,13 +32,13 @@ fun AppContent(component: RootComponent,
             ) {
                 when (val instance = it.instance) {
                     is RootComponent.Child.Main -> SplashViewDecompose(component = instance.component)
-                    is RootComponent.Child.Auth -> LoginView(component = instance.component,
-                        onSignIn = { email, password ->
+                    is RootComponent.Child.Auth -> LoginRoute(component = instance.component,
+                        /*onSignIn = { email, password ->
                             {
                                 println("Login...")
 //                            component.onLogin(email, password)
                             }
-                        })
+                        }*/)
 
                     else -> {
                         throw Exception("Unknown child $instance")

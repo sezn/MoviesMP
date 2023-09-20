@@ -5,6 +5,7 @@ androidxComposeCompiler = "1.5.3"
 androidxCore = "1.10.1"
 #decompose = "2.2.0-dev02"
 decompose = "2.0.0-compose-experimental-beta-01"
+kmp = "0.4.0"
 koin = "3.4.3"
 kotlin = "1.9.10"
 kotlinxSerializationJson = "1.6.0"
@@ -26,7 +27,9 @@ decompose = { group = "com.arkivanov.decompose", name = "decompose", version.ref
 decompose-jetbrains = { group = "com.arkivanov.decompose", name = "extensions-compose-jetbrains", version.ref = "decompose" }
 compose-material-icons-ext = { group = "org.jetbrains.compose.material", name = "material-icons-extended", version.ref = "compose" }
 kmm-viewmodel = { group ="com.rickclephas.kmm", name = "kmm-viewmodel-core", version.ref = "kotlin" }
+kmp-viewmodel = { group ="io.github.hoc081098", name = "kmp-viewmodel", version.ref = "kmp" }
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinxSerializationJson" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 ktor-auth = { group = "io.ktor", name = "ktor-client-auth", version.ref = "ktor" }
