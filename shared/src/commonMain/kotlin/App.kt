@@ -32,6 +32,8 @@ fun App() {
     val favorite = Favorite(true, 1, "test")
     val movie = fakeMovie
 
+
+
 /*    CoroutineScope(Dispatchers.Main).launch {
         val movies = moviesAPI.getMovies()
     }*/

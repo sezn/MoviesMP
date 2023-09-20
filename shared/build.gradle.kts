@@ -38,6 +38,7 @@ kotlin {
                 implementation(project(":domain"))
                 implementation(project(":core:network"))
                 implementation(project(":design"))
+                implementation(project(":features:auth"))
                 implementation(project(":features:home"))
 
             }
