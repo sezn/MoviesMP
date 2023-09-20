@@ -30,6 +30,7 @@ kotlin {
                 implementation(libs.compose.material.icons.ext)
 
                 implementation(project(":design"))
+                implementation(project(":core:decompose"))
             }
         }
 

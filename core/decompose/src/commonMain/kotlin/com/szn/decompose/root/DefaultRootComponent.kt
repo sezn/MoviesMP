@@ -1,3 +1,4 @@
+package com.szn.decompose.root
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.ChildStack
@@ -9,6 +10,10 @@ import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
+import com.szn.decompose.main.DefaultMainComponent
+import com.szn.decompose.main.MainComponent
+import com.szn.decompose.welcome.AuthComponent
+import com.szn.decompose.welcome.DefaultAuthComponent
 
 class DefaultRootComponent(
     componentContext: ComponentContext,
@@ -27,17 +32,17 @@ class DefaultRootComponent(
     private fun child(config: Config, childComponentContext: ComponentContext): RootComponent.Child =
         when (config) {
             is Config.Main -> RootComponent.Child.Main(mainComponent(childComponentContext))
-            is Config.Welcome -> RootComponent.Child.Welcome(welcomeComponent(childComponentContext))
+            is Config.Auth -> RootComponent.Child.Auth(authComponent(childComponentContext))
             else -> { throw IllegalArgumentException("Unknown config: $config")  }
         }
 
     private fun mainComponent(componentContext: ComponentContext): MainComponent =
         DefaultMainComponent(
             componentContext = componentContext,
-            onShowWelcome = { navigation.push(Config.Welcome) },
+            onShowWelcome = { navigation.push(Config.Auth) },
         )
 
-    private fun welcomeComponent(componentContext: ComponentContext): AuthComponent =
+    private fun authComponent(componentContext: ComponentContext): AuthComponent =
         DefaultAuthComponent(
             componentContext = componentContext,
             onFinished = navigation::pop,
@@ -52,6 +57,6 @@ class DefaultRootComponent(
         data object Main : Config
 
         @Parcelize
-        data object Welcome : Config
+        data object Auth : Config
     }
 }

@@ -1,3 +1,4 @@
+package com.szn.decompose.main
 
 import com.arkivanov.decompose.ComponentContext
 

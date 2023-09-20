@@ -1,3 +1,4 @@
+package com.szn.decompose.welcome
 
 import com.arkivanov.decompose.value.Value
 

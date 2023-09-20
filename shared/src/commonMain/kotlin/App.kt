@@ -10,6 +10,7 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.fade
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scale
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
+import com.szn.decompose.root.RootComponent
 import com.szn.design.SplashViewDecompose
 import com.szn.movies.auth.LoginView
 
@@ -26,9 +27,7 @@ fun AppContent(component: RootComponent,
         ) {
             when (val instance = it.instance) {
                 is RootComponent.Child.Main -> SplashViewDecompose(component = instance.component)
-//                is RootComponent.Child.Main -> AppSkeleton(/*component = instance.component*/)
-//                is RootComponent.Child.Welcome -> LoginScreen(component = instance.component)
-                is RootComponent.Child.Welcome -> LoginView(/*component = instance.component, */
+                is RootComponent.Child.Auth -> LoginView(component = instance.component,
                         onSignIn = { email, password -> {
                             println("Login...")
 //                            component.onLogin(email, password)

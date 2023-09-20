@@ -44,15 +44,17 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.szn.decompose.welcome.AuthComponent
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalResourceApi::class)
 @Composable
-fun LoginView(login: String? = null,
-                errorMessage: String? = null,
-                onSignIn: (mail: String, password: String) -> Unit,
+fun LoginView(component: AuthComponent,
+              login: String? = null,
+              errorMessage: String? = null,
+              onSignIn: (mail: String, password: String) -> Unit,
 ) {
 
     var pass by remember { mutableStateOf("") }
@@ -130,7 +132,7 @@ fun LoginView(login: String? = null,
 
         Spacer(Modifier.height(64.dp))
         Button(onClick = {
-            println("Login, onButtonClick $login $pseudo")
+            println("Login, onPassClick $login $pseudo")
 //            navController.navigate("home")
         },
             modifier = Modifier
