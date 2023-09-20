@@ -6,8 +6,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
-import com.szn.design.LoginScreen
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.fade
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scale
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 import com.szn.design.SplashViewDecompose
+import com.szn.movies.auth.LoginView
 
 @Composable
 fun AppContent(component: RootComponent,
@@ -18,18 +22,22 @@ fun AppContent(component: RootComponent,
         Children(
             stack = component.stack,
             modifier = Modifier.fillMaxSize(),
-//            animation = stackAnimation(fade() + scale())
+            animation = stackAnimation(fade() + scale())
         ) {
             when (val instance = it.instance) {
                 is RootComponent.Child.Main -> SplashViewDecompose(component = instance.component)
 //                is RootComponent.Child.Main -> AppSkeleton(/*component = instance.component*/)
-                is RootComponent.Child.Welcome -> LoginScreen(component = instance.component)
+//                is RootComponent.Child.Welcome -> LoginScreen(component = instance.component)
+                is RootComponent.Child.Welcome -> LoginView(/*component = instance.component, */
+                        onSignIn = { email, password -> {
+                            println("Login...")
+//                            component.onLogin(email, password)
+                        }})
                 else -> {
                     throw Exception("Unknown child $instance")
                 }
             }
 
-//        AppSkeleton()
         }
 
     }

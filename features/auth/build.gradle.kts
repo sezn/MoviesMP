@@ -5,7 +5,6 @@ plugins {
 
     id("multiplatform.convention")
     id("multiplatform.library")
-    alias(libs.plugins.ksp)
 }
 
 
@@ -27,8 +26,10 @@ kotlin {
                 implementation(compose.material3)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
-                implementation(libs.decompose)
-                implementation(project(":core:decompose"))
+
+                implementation(libs.compose.material.icons.ext)
+
+                implementation(project(":design"))
             }
         }
 
@@ -41,9 +42,8 @@ kotlin {
 }
 
 android {
-    namespace = "com.szn.design"
+    namespace = "com.szn.movies.auth"
     compileSdk = 34
-    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 }
 
 dependencies {
