@@ -30,11 +30,11 @@ kotlin {
 //                api(libs.kmm.viewmodel)
                 implementation(libs.kmp.viewmodel)
                 implementation(libs.koin.core)
+                implementation(libs.koin.compose)
 
+                implementation(project(":core:decompose"))
                 implementation(project(":design"))
                 implementation(project(":domain"))
-                implementation(project(":core:decompose"))
-                implementation(project(":core:network"))
             }
         }
 

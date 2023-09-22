@@ -8,6 +8,7 @@ kotlin {
     sourceSets {
         val androidMain by getting {
             dependencies {
+                implementation(project(":domain"))
                 implementation(project(":shared"))
                 implementation(project(":core:decompose"))
                 implementation(libs.koin.android)

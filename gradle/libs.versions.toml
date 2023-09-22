@@ -7,6 +7,7 @@ androidxCore = "1.10.1"
 decompose = "2.0.0-compose-experimental-beta-01"
 kmp = "0.4.0"
 koin = "3.4.3"
+koinCompose = "1.1.0"
 kotlin = "1.9.10"
 kotlinxCoroutines = "1.7.3"
 kotlinxSerializationJson = "1.6.0"
@@ -31,6 +32,7 @@ kmm-viewmodel = { group ="com.rickclephas.kmm", name = "kmm-viewmodel-core", ver
 kmp-viewmodel = { group ="io.github.hoc081098", name = "kmp-viewmodel", version.ref = "kmp" }
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koinCompose" }
 kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinxSerializationJson" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }

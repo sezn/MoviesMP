@@ -39,19 +39,22 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.szn.decompose.welcome.AuthComponent
 import com.szn.design.views.RoundedCornersTextField
+import com.szn.domain.repo.AuthRepositoryImpl
 import com.szn.network.authAPI
-import com.szn.network.moviesAPI
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.koinInject
+
 
 @Composable
 fun LoginRoute(component: AuthComponent){
     val mail = remember { mutableStateOf("") }
 
+//     val authRepository: AuthRepositoryImpl by inject()
+    val authRepository = koinInject<AuthRepositoryImpl>()
 
     LoginView(login = mail.value,
         onSignIn = { mail, pass ->
@@ -59,7 +62,10 @@ fun LoginRoute(component: AuthComponent){
         println("LoginRoute onSignIn $mail $pass")
 //        component.onSignIn(mail, pass)
             CoroutineScope(Dispatchers.Main).launch {
-                val auth = authAPI.auth()
+
+                val auth = authRepository.auth()
+
+//                val auth = authAPI.auth()
                 println("LoginRoute auth: $auth")
                 /*authAPI.authenticate().collect{
                     println("LoginRoute API onSignIn $it")

@@ -16,7 +16,8 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(libs.kotlinx.coroutines)
-                implementation(project(":core:network"))
+                implementation(libs.koin.core)
+                api(project(":core:network"))
             }
         }
     }

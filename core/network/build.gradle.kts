@@ -20,6 +20,7 @@ kotlin {
             dependencies {
                 implementation(libs.kotlinx.coroutines)
                 implementation(libs.kotlinx.serialization.json)
+                implementation(libs.koin.core)
                 implementation(libs.ktor.cio)
                 implementation(libs.ktor.core)
                 implementation(libs.ktor.logging)
