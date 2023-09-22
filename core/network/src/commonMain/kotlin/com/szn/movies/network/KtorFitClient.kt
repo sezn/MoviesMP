@@ -1,5 +1,6 @@
 package com.szn.network
 
+import com.szn.movies.network.MoviesAuthAPI
 import de.jensklingenberg.ktorfit.converter.builtin.CallConverterFactory
 import de.jensklingenberg.ktorfit.converter.builtin.FlowConverterFactory
 import de.jensklingenberg.ktorfit.ktorfit

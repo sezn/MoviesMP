@@ -1,5 +1,8 @@
-package com.szn.network.model.user.session
+package com.szn.movies.network.model.user.session
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class UserSession(
     val username: String?,
     val password: String?,

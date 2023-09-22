@@ -1,4 +1,4 @@
-package com.szn.network.model.user
+package com.szn.movies.network.model.user
 
 import kotlinx.serialization.Serializable
 

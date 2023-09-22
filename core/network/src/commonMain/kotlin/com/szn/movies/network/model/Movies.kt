@@ -1,4 +1,4 @@
-package com.szn.network.model
+package com.szn.movies.network.model
 
 import kotlinx.serialization.Serializable
 

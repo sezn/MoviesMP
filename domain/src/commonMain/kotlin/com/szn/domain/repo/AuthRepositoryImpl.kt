@@ -1,18 +1,42 @@
 package com.szn.domain.repo
 
-import com.szn.domain.mappers.NetworkUserMapper
-import com.szn.domain.model.User
-import com.szn.network.MoviesAuthAPI
-import com.szn.network.model.user.session.AuthResult
-import com.szn.network.model.user.session.UserSession
+import com.szn.movies.network.MoviesAuthAPI
+import com.szn.movies.network.model.user.AuthResponse
+import com.szn.movies.network.model.user.session.AuthResult
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.emptyFlow
 
 class AuthRepositoryImpl(private val networkService: MoviesAuthAPI): AuthRepository {
     override suspend fun authenticate(): Flow<AuthResult> {
         return networkService.authenticate()
+    }
+
+    suspend fun auth(){
+        try {
+            val authResponse = networkService.auth()
+            when (authResponse) {
+                is AuthResponse.Success -> {
+                    // Handle successful response
+                    println("authResponse: ${authResponse.authResult}")
+                }
+                is AuthResponse.Error -> {
+                    // Handle error response
+                    if (authResponse.errorResponse.status_code == 7) {
+                        // Invalid API key error
+                        println("authResponse Invalid API key error")
+                    } else {
+                        // Other error
+                        println("authResponse Other error")
+                    }
+                }
+            }
+
+
+        }  catch (e: Exception) {
+            // Handle JsonConvertException
+            println("authResponse Uncaught error")
+            e.printStackTrace()
+        }
     }
 
     override suspend fun createSession(): Flow<AuthResult> {

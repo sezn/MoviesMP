@@ -32,6 +32,7 @@ kotlin {
                 implementation(libs.koin.core)
 
                 implementation(project(":design"))
+                implementation(project(":domain"))
                 implementation(project(":core:decompose"))
                 implementation(project(":core:network"))
             }

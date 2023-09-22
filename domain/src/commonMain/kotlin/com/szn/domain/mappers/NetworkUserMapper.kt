@@ -1,7 +1,7 @@
 package com.szn.domain.mappers
 
 import com.szn.domain.model.User
-import com.szn.network.model.user.Account
+import com.szn.movies.network.model.user.Account
 
 class NetworkUserMapper {
 
