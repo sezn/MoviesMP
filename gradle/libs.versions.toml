@@ -8,6 +8,7 @@ decompose = "2.0.0-compose-experimental-beta-01"
 kmp = "0.4.0"
 koin = "3.4.3"
 kotlin = "1.9.10"
+kotlinxCoroutines = "1.7.3"
 kotlinxSerializationJson = "1.6.0"
 ktor = "2.3.4"
 ktorFit = "1.6.0"
@@ -30,11 +31,13 @@ kmm-viewmodel = { group ="com.rickclephas.kmm", name = "kmm-viewmodel-core", ver
 kmp-viewmodel = { group ="io.github.hoc081098", name = "kmp-viewmodel", version.ref = "kmp" }
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinxSerializationJson" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 ktor-auth = { group = "io.ktor", name = "ktor-client-auth", version.ref = "ktor" }
 ktor-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
 ktor-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor" }
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
 ktor-client-mock = { group = "io.ktor", name = "ktor-client-mock", version.ref = "ktor" }
 ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
 ktor-negociation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }

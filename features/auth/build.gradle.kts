@@ -27,11 +27,13 @@ kotlin {
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
                 implementation(libs.compose.material.icons.ext)
+//                api(libs.kmm.viewmodel)
                 implementation(libs.kmp.viewmodel)
                 implementation(libs.koin.core)
 
                 implementation(project(":design"))
                 implementation(project(":core:decompose"))
+                implementation(project(":core:network"))
             }
         }
 

@@ -60,6 +60,8 @@ kotlin {
                 api(libs.decompose)
                 implementation(libs.decompose.jetbrains)
                 implementation(libs.koin.core)
+//                api(libs.kmm.viewmodel)
+                api(libs.kmp.viewmodel)
             }
         }
         val androidMain by getting {

@@ -37,7 +37,6 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.hoc081098.kmp.viewmodel.ViewModel
 import com.szn.decompose.welcome.AuthComponent
 import com.szn.design.views.RoundedCornersTextField
 import kotlinx.coroutines.launch
@@ -47,7 +46,7 @@ import org.jetbrains.compose.resources.painterResource
 @Composable
 fun LoginRoute(component: AuthComponent){
     val mail = remember { mutableStateOf("") }
-//    val viewModel: ViewModel by inject()
+
 
     LoginView(login = mail.value,
         onSignIn = { mail, pass ->
