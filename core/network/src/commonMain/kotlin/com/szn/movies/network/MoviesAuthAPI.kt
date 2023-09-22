@@ -15,6 +15,9 @@ interface MoviesAuthAPI {
     @GET("3/authentication/token/new")
     suspend fun authenticate(): Flow<AuthResult>
 
+    @GET("3/authentication/token/new")
+    suspend fun auth(): AuthResult
+
     /**
      * This method will let you create a new guest session.
      * Guest sessions are a type of session that will let a user rate movies

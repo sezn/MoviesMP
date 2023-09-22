@@ -19,22 +19,33 @@ kotlin {
 
 android {
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
-    namespace = "com.movies"
+    namespace = "com.szn.movies"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+//    sourceSets["main"].manifest.srcFile("src/debug/AndroidManifest.xml")
+//    sourceSets["main"].res.srcDirs("src/debug/res")
 
     defaultConfig {
-        applicationId = "com.myapplication.MyApplication"
+        applicationId = "com.szn.movies"
         minSdk = (findProperty("android.minSdk") as String).toInt()
         targetSdk = (findProperty("android.targetSdk") as String).toInt()
         versionCode = 1
         versionName = "1.0"
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+
+    buildTypes {
+        val release by getting {
+            isDebuggable = false
+            isMinifyEnabled = true
+        }
+        getByName("debug") {
+            isDebuggable = true
+            applicationIdSuffix = ".dev"
+            sourceSets["main"].manifest.srcFile("src/debug/AndroidManifest.xml")
+            sourceSets["main"].res.srcDirs("src/debug/res")
+        }
     }
-    kotlin {
-        jvmToolchain(17)
+    packaging {
+        exclude("META-INF/INDEX.LIST")
     }
 }

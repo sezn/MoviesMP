@@ -1,4 +1,4 @@
-package com.movies
+package com.szn.movies
 
 import android.app.Application
 import di.appModule

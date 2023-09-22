@@ -1,4 +1,4 @@
-package com.movies
+package com.szn.movies
 
 import AppContent
 import android.os.Bundle

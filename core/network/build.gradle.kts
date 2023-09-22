@@ -22,11 +22,13 @@ kotlin {
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.ktor.cio)
                 implementation(libs.ktor.core)
+                implementation(libs.ktor.logging)
                 implementation(libs.ktor.negociation)
                 implementation(libs.ktor.serialization)
                 implementation(libs.ktor.serialization.json)
                 implementation(libs.ktorfit)
 //                implementation(libs.ktorfit.ksp)
+                implementation(libs.logback)
             }
         }
     }
@@ -34,7 +36,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.szn.network"
+    namespace = "com.szn.movies.network"
     compileSdk = 34
 }
 

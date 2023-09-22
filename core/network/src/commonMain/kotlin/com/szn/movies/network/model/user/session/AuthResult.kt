@@ -1,13 +1,15 @@
 package com.szn.network.model.user.session
 
 import com.szn.network.model.ErrorResponse
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class AuthResult(
     val expires_at: String?,
     val request_token: String?,
-    val success: Boolean,
-    val session_id: String?,
-    val error: ErrorResponse?
+    val success: Boolean = false,
+    val session_id: String? = null,
+    val error: ErrorResponse? = null
 ) {
     constructor(error: ErrorResponse) : this(null, null, false, null, error)
 }
