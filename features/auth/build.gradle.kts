@@ -33,6 +33,7 @@ kotlin {
                 implementation(libs.koin.compose)
 
                 implementation(project(":core:decompose"))
+                implementation(project(":core:network"))
                 implementation(project(":design"))
                 implementation(project(":domain"))
             }

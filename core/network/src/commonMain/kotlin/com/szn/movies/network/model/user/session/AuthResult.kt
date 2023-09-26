@@ -7,9 +7,7 @@ import kotlinx.serialization.Serializable
 data class AuthResult(
     val expires_at: String?,
     val request_token: String?,
-    val success: Boolean = false,
+    val success: Boolean?,
     val session_id: String? = null,
     val error: ErrorResponse? = null
-) {
-    constructor(error: ErrorResponse) : this(null, null, false, null, error)
-}
+)

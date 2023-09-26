@@ -1,7 +1,6 @@
 package com.szn.movies.network
 
 import com.szn.movies.network.model.user.Account
-import com.szn.movies.network.model.user.AuthResponse
 import com.szn.movies.network.model.user.session.AuthResult
 import de.jensklingenberg.ktorfit.Response
 import de.jensklingenberg.ktorfit.http.DELETE
@@ -15,7 +14,7 @@ interface MoviesAuthAPI {
     suspend fun authenticate(): Flow<AuthResult>
 
     @GET("3/authentication/token/new")
-    suspend fun auth(): AuthResponse
+    suspend fun auth(): AuthResult
 
     /**
      * This method will let you create a new guest session.

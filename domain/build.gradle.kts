@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -16,7 +17,10 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(libs.kotlinx.coroutines)
+                implementation(libs.kotlinx.serialization.json)
                 implementation(libs.koin.core)
+                implementation(libs.ktor.serialization)
+                implementation(libs.ktor.serialization.json)
                 api(project(":core:network"))
             }
         }

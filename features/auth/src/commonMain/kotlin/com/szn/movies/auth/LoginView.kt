@@ -40,9 +40,10 @@ import androidx.compose.ui.unit.dp
 import com.szn.decompose.welcome.AuthComponent
 import com.szn.design.views.RoundedCornersTextField
 import com.szn.domain.repo.AuthRepositoryImpl
-import com.szn.network.authAPI
+import com.szn.movies.network.authAPI
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
@@ -63,13 +64,21 @@ fun LoginRoute(component: AuthComponent){
 //        component.onSignIn(mail, pass)
             CoroutineScope(Dispatchers.Main).launch {
 
-                val auth = authRepository.auth()
-
 //                val auth = authAPI.auth()
+                val auth = authAPI.authenticate().collect {
+                    println("LoginRoute API onSignIn $it")
+                }
+//                val auth = authRepository.auth()
+//                val auth = authRepository.authBis()
                 println("LoginRoute auth: $auth")
                 /*authAPI.authenticate().collect{
                     println("LoginRoute API onSignIn $it")
                 }*/
+
+
+           /*     delay(4000)
+                val authB = authRepository.testAuth()
+                println("LoginRoute authTest: $authB")*/
             }
 
     })

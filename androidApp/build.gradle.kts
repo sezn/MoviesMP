@@ -42,8 +42,8 @@ android {
         getByName("debug") {
             isDebuggable = true
             applicationIdSuffix = ".dev"
-            sourceSets["main"].manifest.srcFile("src/debug/AndroidManifest.xml")
-            sourceSets["main"].res.srcDirs("src/debug/res")
+//            sourceSets["main"].manifest.srcFile("src/debug/AndroidManifest.xml")
+//            sourceSets["main"].res.srcDirs("src/debug/res")
         }
     }
     packaging {

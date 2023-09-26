@@ -1,7 +1,6 @@
 package com.szn.domain.repo
 
 import com.szn.movies.network.MoviesAuthAPI
-import com.szn.movies.network.model.user.AuthResponse
 import com.szn.movies.network.model.user.session.AuthResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
@@ -12,9 +11,22 @@ class AuthRepositoryImpl(private val networkService: MoviesAuthAPI): AuthReposit
     }
 
     suspend fun auth(){
-        try {
+//        try {
             val authResponse = networkService.auth()
-            when (authResponse) {
+            println("authResponse ${authResponse}")
+       /*     when (authResponse) {
+                is AuthResponse.Success -> {
+                    // Handle the success response
+//                    return response.authResult
+                    println("authResponse: ${authResponse.authResult}")
+                }
+                is AuthResponse.Error -> {
+                    // Handle the error response
+//                    throw response.errorResponse
+                    println("authResponse:: ${authResponse.errorResponse}")
+                }
+            }*/
+           /* when (authResponse) {
                 is AuthResponse.Success -> {
                     // Handle successful response
                     println("authResponse: ${authResponse.authResult}")
@@ -29,14 +41,21 @@ class AuthRepositoryImpl(private val networkService: MoviesAuthAPI): AuthReposit
                         println("authResponse Other error")
                     }
                 }
-            }
+            }*/
 
 
-        }  catch (e: Exception) {
+        /*}  catch (e: Exception) {
             // Handle JsonConvertException
             println("authResponse Uncaught error")
             e.printStackTrace()
+        }*/
+    }
+
+    suspend fun authBis() {
+        val authResponse = networkService.authenticate().collect{
+            println("authResponse: $it")
         }
+        println("authResponse ${authResponse}")
     }
 
     override suspend fun createSession(): Flow<AuthResult> {

@@ -8,7 +8,7 @@ import de.jensklingenberg.ktorfit.http.Query
 interface MoviesAPI {
 
     companion object {
-        const val baseUrl = "https://api.themoviedb.org/"
+        const val baseUrl = "http://api.themoviedb.org/"
         val API_KEY = "TODO"
     }
     @GET("3/movie/{movie_id}")
