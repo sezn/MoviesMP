@@ -19,6 +19,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(libs.kotlinx.coroutines)
+                implementation(libs.kotlinx.serialization.core)
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.koin.core)
                 implementation(libs.ktor.auth)
@@ -47,19 +48,15 @@ dependencies {
     with("de.jensklingenberg.ktorfit:ktorfit-ksp:1.6.0") {
         add("kspCommonMainMetadata", this)
         add("kspJvm", this)
-//        add("kspJvmTest", this)
+        add("kspJvmTest", this)
         add("kspAndroid", this)
-//        add("kspAndroidTest", this)
+        add("kspAndroidTest", this)
         add("kspIosX64", this)
-//        add("kspIosX64Test", this)
+        add("kspIosX64Test", this)
         add("kspIosArm64", this)
-//        add("kspIosArm64Test", this)
+        add("kspIosArm64Test", this)
         add("kspIosSimulatorArm64", this)
-//        add("kspIosSimulatorArm64Test", this)
-//        add("kspMacosX64", this)
-//        add("kspMacosX64Test", this)
-//        add("kspJs", this)
-//        add("kspJsTest", this)
+        add("kspIosSimulatorArm64Test", this)
     }
 
 }

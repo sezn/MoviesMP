@@ -1,7 +1,7 @@
 package com.szn.domain.usecases
 
 import com.szn.domain.repo.AuthRepositoryImpl
-import com.szn.movies.network.model.user.session.AuthResult
+import com.szn.movies.network.model.user.AuthResult
 import kotlinx.coroutines.flow.Flow
 
 class CreateGuestSessionUseCase(private val authRepository: AuthRepositoryImpl) {

@@ -1,7 +1,7 @@
 package com.szn.network
 
-import com.szn.movies.network.model.Movie
-import com.szn.movies.network.model.Movies
+import com.szn.movies.network.model.movies.Movie
+import com.szn.movies.network.model.movies.Movies
 import de.jensklingenberg.ktorfit.http.GET
 import de.jensklingenberg.ktorfit.http.Path
 import de.jensklingenberg.ktorfit.http.Query

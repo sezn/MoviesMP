@@ -1,7 +1,7 @@
 package com.szn.domain.repo
 
 import com.szn.movies.network.MoviesAuthAPI
-import com.szn.movies.network.model.user.session.AuthResult
+import com.szn.movies.network.model.user.AuthResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 

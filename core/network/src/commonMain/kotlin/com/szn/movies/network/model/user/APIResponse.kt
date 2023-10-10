@@ -1,7 +1,6 @@
 package com.szn.movies.network.model.user
 
 import com.szn.movies.network.model.ErrorResponse
-import com.szn.movies.network.model.user.session.AuthResult
 import kotlinx.serialization.Serializable
 
 @Serializable

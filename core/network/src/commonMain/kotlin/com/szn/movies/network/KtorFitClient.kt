@@ -6,7 +6,6 @@ import de.jensklingenberg.ktorfit.converter.builtin.FlowConverterFactory
 import de.jensklingenberg.ktorfit.ktorfit
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
-import io.ktor.client.plugins.HttpResponseValidator
 import io.ktor.client.plugins.UserAgent
 import io.ktor.client.plugins.auth.Auth
 import io.ktor.client.plugins.auth.providers.BearerTokens
@@ -17,15 +16,28 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.request.header
-import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import org.koin.core.component.getScopeId
 
 val ktorfit = ktorfit {
     var bearer = true
-    val token = "xxxx"
+//    val token = API.properties["api.token"] as String
+//    val token = System.getenv("api.token"
+    val token: String = System.getenv("api.token") ?: "default_value"
+    println("token...")
+    println("token: $token")
+    println("token API")
+    println(System.getenv("api.token"))
+    println("token API..")
+    println(System.getenv("kotlin.version"))
+    println(System.getenv("sdk.dir"))
+    println(System.getenv("JAVA_HOME"))
+    println("OS..")
+    println(System.getenv("OS"))
+
     baseUrl(MoviesAPI.baseUrl)
     httpClient(HttpClient(CIO) {
 
@@ -60,14 +72,14 @@ val ktorfit = ktorfit {
             header(HttpHeaders.ContentType, ContentType.Application.Json)
         }
 
-
+/*
         HttpResponseValidator {
             validateResponse { response: HttpResponse ->
                 val statusCode = response.status.value
 
                 println("HTTP status:: $statusCode")
 
-              /*  when (statusCode) {
+              *//*  when (statusCode) {
                     in 300..399 -> {
                         throw RedirectResponseException(response)
                     }
@@ -81,13 +93,13 @@ val ktorfit = ktorfit {
 
                 if (statusCode >= 600) {
                     throw ResponseException(response)
-                }*/
+                }*//*
             }
 
             handleResponseException { cause: Throwable ->
                 throw cause
             }
-        }
+        }*/
 
     })
     converterFactories(

@@ -1,7 +1,8 @@
 package com.szn.movies.network
 
+import com.szn.movies.network.model.APIResponse
 import com.szn.movies.network.model.user.Account
-import com.szn.movies.network.model.user.session.AuthResult
+import com.szn.movies.network.model.user.AuthResult
 import de.jensklingenberg.ktorfit.Response
 import de.jensklingenberg.ktorfit.http.DELETE
 import de.jensklingenberg.ktorfit.http.GET
@@ -15,11 +16,12 @@ interface MoviesAuthAPI {
 
     @GET("3/authentication/token/new")
     suspend fun auth(): AuthResult
+//    suspend fun auth(): APIResponse<AuthResult>
 
     /**
      * This method will let you create a new guest session.
      * Guest sessions are a type of session that will let a user rate movies
-     * and TV shows but not require them to have a TMDB user account
+     * and TV shows but not require them to have a ùTMDB user account
      */
     @POST("3/authentication/guest_session/new")
     suspend fun createSession(): Flow<AuthResult>
