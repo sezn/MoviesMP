@@ -25,18 +25,9 @@ import org.koin.core.component.getScopeId
 val ktorfit = ktorfit {
     var bearer = true
 //    val token = API.properties["api.token"] as String
-//    val token = System.getenv("api.token"
     val token: String = System.getenv("api.token") ?: "default_value"
     println("token...")
     println("token: $token")
-    println("token API")
-    println(System.getenv("api.token"))
-    println("token API..")
-    println(System.getenv("kotlin.version"))
-    println(System.getenv("sdk.dir"))
-    println(System.getenv("JAVA_HOME"))
-    println("OS..")
-    println(System.getenv("OS"))
 
     baseUrl(MoviesAPI.baseUrl)
     httpClient(HttpClient(CIO) {
