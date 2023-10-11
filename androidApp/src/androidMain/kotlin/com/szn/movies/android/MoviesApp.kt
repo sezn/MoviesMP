@@ -1,4 +1,4 @@
-package com.szn.movies
+package com.szn.movies.android
 
 import android.app.Application
 import com.szn.domain.di.authModule

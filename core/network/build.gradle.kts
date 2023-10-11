@@ -31,6 +31,7 @@ kotlin {
                 implementation(libs.ktor.serialization.json)
                 implementation(libs.ktorfit)
                 implementation(libs.logback)
+                implementation(project(":core:buildconfig"))
             }
         }
     }

@@ -13,6 +13,8 @@ kotlin {
                 implementation(project(":core:decompose"))
                 implementation(libs.koin.android)
                 implementation(libs.koin.core)
+
+                implementation(project(":core:buildconfig"))
             }
         }
     }
@@ -20,18 +22,23 @@ kotlin {
 
 android {
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
-    namespace = "com.szn.movies"
+    namespace = "com.szn.movies.android"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 //    sourceSets["main"].manifest.srcFile("src/debug/AndroidManifest.xml")
 //    sourceSets["main"].res.srcDirs("src/debug/res")
-
+    android.buildFeatures.buildConfig=true
     defaultConfig {
-        applicationId = "com.szn.movies"
+        applicationId = "com.szn.movies.android"
         minSdk = (findProperty("android.minSdk") as String).toInt()
         targetSdk = (findProperty("android.targetSdk") as String).toInt()
         versionCode = 1
         versionName = "1.0"
+
+        buildConfigField("String", "APP_SECRET", "\"testouillle\"")
+        val token = System.getenv("MOVIES_APP_STORE_PASS") ?: "\"fail\""
+
+        buildConfigField("String", "TOKEN", token)
     }
 
     buildTypes {

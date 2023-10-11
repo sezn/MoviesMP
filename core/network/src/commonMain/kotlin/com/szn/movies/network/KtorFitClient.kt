@@ -1,5 +1,6 @@
 package com.szn.movies.network
 
+import com.szn.movies.BuildConfig
 import com.szn.network.MoviesAPI
 import de.jensklingenberg.ktorfit.converter.builtin.CallConverterFactory
 import de.jensklingenberg.ktorfit.converter.builtin.FlowConverterFactory
@@ -20,16 +21,15 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import org.koin.core.component.getScopeId
 
 val ktorfit = ktorfit {
     var bearer = true
-//    val token = API.properties["api.token"] as String
-    val token: String = System.getenv("api.token") ?: "default_value"
-    println("token...")
+    val token: String = BuildConfig.API_KEY
     println("token: $token")
+    println("BuildConfig PLATFORM: ${BuildConfig.PLATFORM}")
+    println("BuildConfig URL: ${BuildConfig.MOVIES_BASE_URL}")
 
-    baseUrl(MoviesAPI.baseUrl)
+    baseUrl(BuildConfig.MOVIES_BASE_URL)
     httpClient(HttpClient(CIO) {
 
         install(ContentNegotiation) {
