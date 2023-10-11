@@ -1,9 +1,8 @@
 package com.szn.movies.network
 
 import com.szn.movies.BuildConfig
+import com.szn.movies.network.serializers.SuspendResponseConverterFactory
 import com.szn.network.MoviesAPI
-import de.jensklingenberg.ktorfit.converter.builtin.CallConverterFactory
-import de.jensklingenberg.ktorfit.converter.builtin.FlowConverterFactory
 import de.jensklingenberg.ktorfit.ktorfit
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
@@ -24,7 +23,7 @@ import kotlinx.serialization.json.Json
 
 val ktorfit = ktorfit {
     var bearer = true
-    val token: String = BuildConfig.API_KEY
+    val token: String = BuildConfig.API_KEY +"testfail"
     println("token: $token")
     println("BuildConfig PLATFORM: ${BuildConfig.PLATFORM}")
     println("BuildConfig URL: ${BuildConfig.MOVIES_BASE_URL}")
@@ -94,9 +93,7 @@ val ktorfit = ktorfit {
 
     })
     converterFactories(
-        FlowConverterFactory(),
-        CallConverterFactory(),
-//        JsonConverterFactory()
+        SuspendResponseConverterFactory()
     ).build()
 }
 

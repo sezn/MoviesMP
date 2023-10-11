@@ -5,10 +5,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 sealed class APIResponse<T> {
 
-//    @Serializable
     data class Success<T>(val data: T) : APIResponse<T>()
+    class Error(val ex:Throwable) : APIResponse<Nothing>()
 
-//    @Serializable
-    data class Error(val error: ErrorResponse) : APIResponse<Nothing>()
-
+    companion object {
+        fun <T> success(data: T) = Success(data)
+        fun error(ex: Throwable) = Error(ex)
+    }
 }

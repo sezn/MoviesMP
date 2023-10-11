@@ -34,11 +34,6 @@ android {
         targetSdk = (findProperty("android.targetSdk") as String).toInt()
         versionCode = 1
         versionName = "1.0"
-
-        buildConfigField("String", "APP_SECRET", "\"testouillle\"")
-        val token = System.getenv("MOVIES_APP_STORE_PASS") ?: "\"fail\""
-
-        buildConfigField("String", "TOKEN", token)
     }
 
     buildTypes {
