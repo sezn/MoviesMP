@@ -56,6 +56,7 @@ kotlin {
                 implementation(project(":design"))
                 implementation(project(":features:auth"))
                 implementation(project(":features:home"))
+                implementation(project(":features:splash"))
                 api(project(":core:decompose"))
                 api(libs.decompose)
                 implementation(libs.decompose.jetbrains)

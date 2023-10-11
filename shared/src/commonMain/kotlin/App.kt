@@ -12,9 +12,9 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scal
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 import com.szn.decompose.root.RootComponent
 import com.szn.design.MoviesTheme
-import com.szn.design.SplashViewDecompose
 import com.szn.movies.auth.LoginRoute
 import com.szn.movies.auth.LoginView
+import com.szn.movies.splash.SplashViewDecompose
 
 @Composable
 fun AppContent(component: RootComponent,

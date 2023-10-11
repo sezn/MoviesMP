@@ -1,4 +1,4 @@
-package com.szn.design
+package com.szn.movies.splash
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutLinearInEasing
@@ -21,6 +21,11 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.szn.decompose.main.MainComponent
+import com.szn.design.MoviesTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -89,5 +94,12 @@ fun Splash(component: MainComponent) {
                 modifier = Modifier.padding(bottom = 16.dp) // Add some padding to separate the text from the bottom edge
             )
         }
+    }
+
+    // Launch onShowWelcomeClicked() after 2 seconds of the screen loading
+    // TODO: auth stuff..
+    LaunchedEffect(key1 = true) {
+        delay(2000L)
+        component.onShowWelcomeClicked()
     }
 }
