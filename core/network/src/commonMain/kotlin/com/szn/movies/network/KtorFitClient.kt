@@ -6,6 +6,11 @@ import com.szn.network.MoviesAPI
 import de.jensklingenberg.ktorfit.ktorfit
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
+import io.ktor.client.plugins.ClientRequestException
+import io.ktor.client.plugins.HttpResponseValidator
+import io.ktor.client.plugins.RedirectResponseException
+import io.ktor.client.plugins.ResponseException
+import io.ktor.client.plugins.ServerResponseException
 import io.ktor.client.plugins.UserAgent
 import io.ktor.client.plugins.auth.Auth
 import io.ktor.client.plugins.auth.providers.BearerTokens
@@ -16,6 +21,7 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.request.header
+import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
@@ -62,28 +68,27 @@ val ktorfit = ktorfit {
             header(HttpHeaders.ContentType, ContentType.Application.Json)
         }
 
-/*
-        HttpResponseValidator {
+/*        HttpResponseValidator {
             validateResponse { response: HttpResponse ->
                 val statusCode = response.status.value
 
                 println("HTTP status:: $statusCode")
 
-              *//*  when (statusCode) {
+                when (statusCode) {
                     in 300..399 -> {
-                        throw RedirectResponseException(response)
+                        throw RedirectResponseException(response, "")
                     }
                     in 400..499 -> {
-                        throw ClientRequestException(response)
+                        throw ClientRequestException(response, "<no response text provided>")
                     }
                     in 500..599 -> {
-                        throw ServerResponseException(response)
+                        throw ServerResponseException(response, "")
                     }
                 }
 
                 if (statusCode >= 600) {
-                    throw ResponseException(response)
-                }*//*
+                    throw ResponseException(response, "")
+                }
             }
 
             handleResponseException { cause: Throwable ->
@@ -97,7 +102,7 @@ val ktorfit = ktorfit {
     ).build()
 }
 
-val moviesAPI = ktorfit.create<MoviesAPI>()
+//val moviesAPI = ktorfit.create<MoviesAPI>()
 val authAPI = ktorfit.create<MoviesAuthAPI>()
 
 

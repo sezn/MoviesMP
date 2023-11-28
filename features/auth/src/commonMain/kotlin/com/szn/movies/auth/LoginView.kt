@@ -65,7 +65,7 @@ fun LoginRoute(component: AuthComponent){
             CoroutineScope(Dispatchers.Main).launch {
 
                 val auth = authAPI.auth()
-                println("LoginRoute auth: $auth")
+                println("LoginRoute auth: ${auth}")
                 /*authAPI.authenticate().collect{
                     println("LoginRoute API onSignIn $it")
                 }*/

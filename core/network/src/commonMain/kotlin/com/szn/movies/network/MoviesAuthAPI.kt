@@ -15,13 +15,13 @@ interface MoviesAuthAPI {
     suspend fun authenticate(): Flow<AuthResult>
 
     @GET("3/authentication/token/new")
-    suspend fun auth(): AuthResult
-//    suspend fun auth(): APIResponse<AuthResult>
+//    suspend fun auth(): AuthResult
+    suspend fun auth(): APIResponse<AuthResult>
 
     /**
      * This method will let you create a new guest session.
      * Guest sessions are a type of session that will let a user rate movies
-     * and TV shows but not require them to have a ùTMDB user account
+     * and TV shows but not require them to have a TMDB user account
      */
     @POST("3/authentication/guest_session/new")
     suspend fun createSession(): Flow<AuthResult>
